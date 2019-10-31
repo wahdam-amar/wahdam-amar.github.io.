@@ -51,19 +51,25 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
 background: #232526;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-rad: 10px;
-  text-align: center;
-  padding: 20px;
-  width: 50%;
-    margin: auto;
-    margin-bottom: 0;
+border-rad: 10px;
+text-align: center;
+padding: 20px;
+width: 50%;
+margin: auto;
+margin-bottom: 0;
+position: relative;
+color: #fff;
 }
 .minibox a{
   color: #fff;
-
   margin: 10px;
   text-transform:uppercase;
   text-decoration: none;
+}
+.minibox span{
+  position: absolute;
+  top: 5px;
+  right: 15px;
 }
 
 
@@ -308,7 +314,7 @@ background: linear-gradient(to right, #dcb5d2, #abbaab); /* W3C, IE 10+/ Edge, F
   .minibox{
     width: 100%;
     padding:10px;
-	font-size:.75rem;		  
+    font-size: .9rem;
   }
   .avatar{
     height: 150px;
@@ -323,13 +329,20 @@ background: linear-gradient(to right, #dcb5d2, #abbaab); /* W3C, IE 10+/ Edge, F
 <body>
 
 <header class="box-shadow fade-in-left">
-  <div class="avatar box-shadow"></div> 
+
+  <div class="avatar box-shadow"></div>
+  
   <div class="minibox box-shadow">
+    <button style="display: none;color:#fff" type="button" class="close closeLink" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+    <div class="links">
     <a href="#about">PROFILE</a>
-    <a href="#contact">CONTACT</a>
+    <a id="triggerContact" href="#">CONTACT</a>
     <a href="#skill">SKILLS</a>
     <a href="#timeline">WORK</a>
-
+  </div>
+    <div style="display: none;" id="contact">0896-3705-8723 | wahdam.amarulloh@gmail.com</div>
   </div>
 </header>
 
@@ -379,13 +392,12 @@ polite and friendly mannerisms</p>
    <div class="timeline-block timeline-block-right">
       <div class="marker"></div>
       <div class="timeline-content">
-         <h3>First Year</h3>
-         <span>Some work experience</span>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+         <h3>2019</h3>
+         <span>Web Dev - Queen Indonesia</span>
+         <p>Membangun dan merancang web untuk company profile untuk <a style="color:#343a40;" href="http://www.queenmodelindonesia.com/">Queen Model Indonesia</a>  </p>
       </div>
    </div>
-
-   <div class="timeline-block timeline-block-left">
+<!--    <div class="timeline-block timeline-block-left">
       <div class="marker"></div>
       <div class="timeline-content">
          <h3>Seconed Year</h3>
@@ -419,7 +431,7 @@ polite and friendly mannerisms</p>
          <span>Some work experience</span>
          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
       </div>
-   </div>
+   </div> -->
 </div>  <!-- end container-->
 
 
@@ -435,10 +447,17 @@ polite and friendly mannerisms</p>
 
 
 <!--js -->
-<script type="text/javascript">
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  $("#triggerContact, .closeLink").click(function(e) {
+    e.preventDefault();
+    $(".links").fadeToggle("slow","linear");
+   $("#contact").fadeToggle("slow","linear");
+   $(".closeLink").fadeToggle("slow","linear");
+});
+</script>
 </body>
 </html>
